@@ -8,7 +8,7 @@ Run a pod called `alpine-sleeper-cka15-arch` using the alpine image in the defau
 **Answer:**
 Create the pod definition using the following YAML configuration:
 
-\`\`\`yaml
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -18,7 +18,7 @@ spec:
   - name: alpine
     image: alpine
     command: ["/bin/sh", "-c", "sleep 7200"]
-\`\`\`
+```
 
 ---
 
@@ -29,15 +29,15 @@ We have created a service account called `red-sa-cka23-arch`, a cluster role cal
 **Answer:**
 Get the `red-role-cka23-arch` role permissions:
 
-\`\`\`bash
+```bash
 kubectl get clusterrole red-role-cka23-arch -o json --context cluster1
-\`\`\`
+```
 
 Add data in file as below:
 
-\`\`\`bash
+```bash
 echo "resource:deployments|verbs:get,list,watch" > /opt/red-sa-cka23-arch
-\`\`\`
+```
 
 ---
 
@@ -48,17 +48,17 @@ There is a Cronjob called `orange-cron-cka10-trb` which is supposed to run every
 **Answer:**
 Troubleshoot the Cronjob scheduling and fix the issues:
 
-\`\`\`bash
+```bash
 kubectl get cronjob
 kubectl logs orange-cron-cka10-trb-xxxx
 kubectl edit cronjob orange-cron-cka10-trb
-\`\`\`
+```
 
 Change command:
 
-\`\`\`bash
+```bash
 curl orange-app-cka10-trb to curl orange-svc-cka10-trb
-\`\`\`
+```
 
 Wait for 2 minutes to run again this cron and it should complete now.
 
@@ -71,11 +71,11 @@ The `blue-dp-cka09-trb` deployment is having 0 out of 1 pods running. Fix the is
 **Answer:**
 List the pods and troubleshoot the deployment:
 
-\`\`\`bash
+```bash
 kubectl get pod
 kubectl logs blue-dp-cka09-trb-xxxx -c init-container
 kubectl edit deploy blue-dp-cka09-trb
-\`\`\`
+```
 
 ---
 
